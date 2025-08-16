@@ -1,0 +1,134 @@
+/* src/Pages/DoctorMaster/DoctorMaster.scss */
+
+.doctor-master {
+  padding: 50px; /* This is internal padding for the component */
+  margin-top: 70px; /* Add margin-top to push the component below the fixed header */
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+
+  h1 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between form groups */
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .form-group {
+    flex: 1; /* Each group takes equal space */
+    min-width: 280px; /* Minimum width before wrapping */
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select { /* Added select for potential dropdowns like specialization */
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      font-size: 1em;
+      color: #495057;
+      transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+      &:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+
+    /* Radio button specific styling */
+    div { /* For the radio button container, e.g., for Status */
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Space between radio options */
+
+      label {
+        font-weight: normal; /* Override bold for radio labels */
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        input[type="radio"] {
+          margin-right: 8px;
+          transform: scale(1.1); /* Slightly larger radio buttons */
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 15px; /* Space between buttons */
+    margin-top: 30px;
+
+    .btn-save,
+    .btn-clear {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      font-weight: bold;
+    }
+
+    .btn-save {
+      background-color: #007bff;
+      color: white;
+
+      &:hover {
+        background-color: #0056b3;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    .btn-clear {
+      background-color: #6c757d;
+      color: white;
+
+      &:hover {
+        background-color: #5a6268;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
