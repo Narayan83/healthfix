@@ -1,0 +1,340 @@
+// Mobile shell — bottom nav, DCR form, fullscreen modals
+
+$hf-mobile-nav-h: 64px;
+
+.hf-main.hf-main--mobile-nav {
+  padding-bottom: calc(#{$hf-mobile-nav-h} + env(safe-area-inset-bottom, 0px));
+}
+
+.hf-mobile-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  display: none;
+  height: calc(#{$hf-mobile-nav-h} + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -4px 20px rgb(15 23 42 / 0.08);
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 0;
+
+  @media (max-width: 991.98px) {
+    display: flex;
+  }
+}
+
+.hf-mobile-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.35rem 0.25rem;
+  min-height: 48px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: color 0.15s ease, background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &.is-active {
+    color: #1d4ed8;
+  }
+
+  &--primary {
+    .hf-mobile-nav__icon {
+      width: 44px;
+      height: 44px;
+      margin-top: -18px;
+      border-radius: 50%;
+      background: #1d4ed8;
+      color: #fff;
+      box-shadow: 0 4px 14px rgb(29 78 216 / 0.4);
+    }
+
+    .hf-mobile-nav__label {
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    &.is-active .hf-mobile-nav__icon {
+      background: #1e40af;
+    }
+  }
+
+  &--menu.is-active {
+    color: #0f172a;
+  }
+}
+
+.hf-mobile-nav__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1.125rem;
+}
+
+.hf-mobile-nav__label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Sidebar backdrop on mobile when open
+.hf-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 64px 0 0 0;
+  z-index: 1015;
+  background: rgb(15 23 42 / 0.45);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  @media (max-width: 991.98px) {
+    &.is-visible {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hf-sidebar:not(.is-collapsed) {
+    box-shadow: 8px 0 32px rgb(0 0 0 / 0.2);
+  }
+
+  .hf-dcr-page .hf-content-container {
+    padding: 0.5rem 0.65rem 0.75rem;
+  }
+
+  .hf-content-container {
+    padding: 1rem 0.875rem 1.25rem;
+  }
+
+  .hf-page-hero__subtitle {
+    display: none;
+  }
+
+  .hf-page-hero__title {
+    font-size: 1.125rem;
+  }
+}
+
+// Daily Call Report — mobile-first field form
+.hf-dcr-page {
+  .hf-page-hero {
+    margin-bottom: 0.5rem;
+  }
+
+  .hf-page-body {
+    gap: 0.35rem;
+  }
+
+  .hf-dcr-alert {
+    font-size: 0.8125rem;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .hf-dcr-card {
+    border-radius: 10px;
+  }
+
+  .hf-dcr-card-body {
+    padding: 0.65rem 0.75rem 0.5rem;
+  }
+
+  .form-label {
+    margin-bottom: 0.2rem;
+    font-size: 0.75rem;
+  }
+
+  .form-select,
+  .form-control {
+    min-height: 42px;
+    font-size: 0.9375rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+
+  textarea.form-control {
+    min-height: 56px;
+  }
+
+  .hf-dcr-section {
+    margin-top: 0.15rem;
+    padding-top: 0.35rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .hf-dcr-section__title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin: 0 0 0.35rem;
+    color: #475569;
+  }
+
+  .hf-dcr-line-list .list-group-item {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    font-size: 0.8125rem;
+  }
+
+  .hf-dcr-actions-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .hf-dcr-promo-add {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .hf-dcr-order-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #f8fafc;
+  }
+
+  .hf-dcr-order-card__title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .hf-dcr-bottom-panel {
+    display: none;
+  }
+
+  .hf-dcr-sticky-bar {
+    display: none;
+  }
+
+  @media (max-width: 991.98px) {
+    .hf-dcr-desktop-only {
+      display: none !important;
+    }
+
+    .hf-dcr-bottom-panel {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: calc(#{$hf-mobile-nav-h} + env(safe-area-inset-bottom, 0px));
+      z-index: 1035;
+      background: #fff;
+      border-top: 1px solid #e2e8f0;
+      box-shadow: 0 -2px 12px rgb(15 23 42 / 0.06);
+    }
+
+    .hf-dcr-yesterday-banner {
+      margin: 0;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.6875rem;
+      line-height: 1.35;
+      font-weight: 500;
+      color: #92400e;
+      background: #fffbeb;
+      border-bottom: 1px solid #fde68a;
+    }
+
+    .hf-dcr-sticky-bar {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.4rem 0.65rem;
+
+      .btn {
+        flex: 1;
+        min-height: 42px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 0.35rem 0.5rem;
+      }
+
+      .btn-primary {
+        flex: 1.35;
+      }
+    }
+
+    .hf-dcr-page__form-spacer {
+      height: 58px;
+    }
+
+    .hf-dcr-page__form-spacer--warn {
+      height: 88px;
+    }
+
+    .hf-dcr-submit-desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hf-dcr-submit-desktop {
+      margin-top: 0.5rem;
+    }
+
+    .hf-dcr-yesterday-banner {
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hf-dcr-mobile-only {
+      display: none !important;
+    }
+  }
+}
+
+// Full-screen product picker on mobile
+.hf-modal-mobile-root {
+  z-index: 1055;
+
+  .modal-dialog {
+    @media (max-width: 991.98px) {
+      margin: 0;
+      max-width: 100%;
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+
+  .modal-content {
+    @media (max-width: 991.98px) {
+      min-height: 100vh;
+      min-height: 100dvh;
+      border-radius: 0;
+      border: none;
+    }
+  }
+
+  .hf-modal-product-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+
+    .btn {
+      min-height: 40px;
+      min-width: 72px;
+      flex-shrink: 0;
+    }
+  }
+}

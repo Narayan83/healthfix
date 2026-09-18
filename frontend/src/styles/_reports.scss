@@ -1,0 +1,41 @@
+.hf-report-tabs {
+  border-bottom: 1px solid #e2e8f0;
+
+  .nav-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #64748b;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+    background: transparent;
+
+    &.active {
+      color: #1d4ed8;
+      border-bottom-color: #1d4ed8;
+      background: transparent;
+    }
+
+    &:hover:not(.active) {
+      color: #0f172a;
+    }
+  }
+}
+
+.hf-report-panel .card-body {
+  padding: 1rem;
+}
+
+.hf-report-filters .form-control,
+.hf-report-filters .form-select {
+  min-height: 36px;
+}
+
+@media (max-width: 991.98px) {
+  .hf-report-tabs .nav-link {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.55rem;
+  }
+}

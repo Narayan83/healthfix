@@ -1,0 +1,267 @@
+@import "variables";
+@import "theme-variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "app-shell";
+@import "mobile";
+@import "reports";
+@import "data-tables";
+@import "../pages/UserManagement/Roles/role_creation";
+@import "../pages/MenuManagement/styles/menu_management";
+@import "../pages/MenuManagement/styles/menu_management_tree";
+@import "../pages/MenuManagement/styles/menu_creation";
+@import "../pages/MenuManagement/styles/role_permissions_tree";
+@import "../pages/MenuManagement/styles/auditlogs";
+
+// Scrollbar style (Required file)
+@import "../../node_modules/simplebar/dist/simplebar.css";
+
+// Tabler Icons style
+@import "./icons/tabler-icons/tabler-icons.css";
+
+body {
+  margin: 0;
+  font-family: "Geist Sans", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $body-color;
+  background-color: $body-bg;
+}
+// Legacy layout removed — see _app-shell.scss
+
+// forms
+
+.form-container {
+  .form-items {
+    display: flex;
+    flex-direction: column;
+    label {
+      color: $dark;
+      font-size: map-get($font-sizes, 4);
+      font-weight: 600;
+      margin: 5px 5px;
+    }
+    input {
+      background: $white;
+      color: $gray-600;
+      width: 100%;
+      outline: none;
+      border: 1px solid $gray-500;
+      border-radius: 5px;
+      height: $input-height;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+      padding-left: 25px;
+    }
+
+    input:focus {
+      border: 2px solid #1872c3;
+    }
+    select {
+      background: $white;
+      color: $gray-600;
+      width: 100%;
+      outline: none;
+      border: 1px solid $gray-500;
+      border-radius: 5px;
+      height: $input-height;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+    }
+
+    select:focus {
+      border: 2px solid #1872c3;
+    }
+    textarea {
+      background: $white;
+      color: $gray-600;
+      width: 100%;
+      outline: none;
+      border: 1px solid $gray-500;
+      border-radius: 5px;
+      height: $input-height;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+      padding-left: 10px;
+    }
+
+    textarea:focus {
+      border: 1px solid $gray-800;
+    }
+
+    /* Style all radio buttons */
+    input[type="radio"] {
+      appearance: none; /* Remove default radio look */
+      width: 18px;
+      height: 18px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      vertical-align: middle;
+      margin-right: 8px;
+      transition: 0.2s;
+    }
+
+    /* Custom inner dot when checked */
+    input[type="radio"]:checked::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 2px;
+      left: 2px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    input[type="radio"]:focus {
+      border: 2px solid #1c1c1c;
+    }
+    .checkbox-container {
+      label {
+        font-size: 12px;
+      }
+    }
+
+    /* Style all checkboxes */
+    input[type="checkbox"] {
+      appearance: none; /* Remove default checkbox */
+      width: 18px;
+      height: 18px;
+      border: 2px solid #333;
+      border-radius: 4px; /* Square corners, reduce or set to 0 for sharper edges */
+      position: relative;
+      cursor: pointer;
+      vertical-align: middle;
+      margin-right: 8px;
+      transition: 0.2s;
+    }
+
+    /* Custom checkmark when checked */
+    input[type="checkbox"]:checked::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 2px;
+      left: 2px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    input[type="checkbox"]:focus {
+      border: 2px solid #1c1c1c;
+    }
+  }
+  .form-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 28px;
+    button {
+      margin-bottom: 0;
+    }
+
+    button.success {
+      background-color: $green;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+      color: $dark;
+      margin-left: 10px;
+      width: 100%;
+    }
+    button.cancel {
+      background-color: $red;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+      color: $dark;
+      margin-left: 10px;
+      width: 100%;
+    }
+
+    button .icon {
+      padding: 0px 5px;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+    }
+
+    // metrial UI
+
+    .MUI-Select {
+      background: $white !important;
+      color: $gray-600;
+      width: 100%;
+      outline: none;
+      border: 1px solid $gray-500;
+      border-radius: 5px;
+      height: $input-height;
+      font-size: map-get($font-sizes, 2);
+      font-weight: 600;
+    }
+  }
+
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: yellow;
+    position: relative;
+
+    .input-icon {
+      position: absolute;
+      top: 2;
+      left: 4;
+      background-color: yellow;
+    }
+  }
+}
+
+.validation-errors {
+  color: $red;
+  font-size: 0.6rem;
+}
+
+// Legacy tables (exclude hf-table — see _data-tables.scss)
+.table:not(.hf-table) {
+  background: $white !important;
+
+  .actions button {
+    min-width: auto !important;
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+// buttons
+
+.gray-button-300 {
+  background-color: $gray-300 !important;
+}
+.gray-button-600 {
+  background-color: $gray-600 !important;
+}
+.gray-button-900 {
+  background-color: $gray-900 !important;
+  color: $white !important;
+}
+
+// card css
+
+.card {
+  background-color: #ffffff;
+  padding: 10px 22px;
+}
+
+.shadow-small {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.shadow-medium {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.shadow-large {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+// responsive styles

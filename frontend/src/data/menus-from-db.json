@@ -1,0 +1,314 @@
+[
+  {
+    "id": 1,
+    "menu_name": "Dashboard",
+    "url": "/home",
+    "icon": "LayoutDashboard",
+    "sort_order": 1,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false
+  },
+  {
+    "id": 104,
+    "menu_name": "Transaction",
+    "url": "/transaction",
+    "icon": "ArrowLeftRight",
+    "sort_order": 2,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "id": 105,
+        "menu_name": "Daily Call Report",
+        "url": "/daily-call-report",
+        "icon": "ClipboardList",
+        "parent_id": 104,
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "menu_name": "Masters",
+    "url": "/masters",
+    "icon": "Database",
+    "sort_order": 3,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "id": 63,
+        "menu_name": "Product Master",
+        "url": "/Product-master",
+        "icon": "Package",
+        "parent_id": 62,
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 64,
+        "menu_name": "Doctor Master",
+        "url": "/Doctor-master",
+        "icon": "Stethoscope",
+        "parent_id": 62,
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 65,
+        "menu_name": "Chemist Master",
+        "url": "/chemist-master",
+        "icon": "Pill",
+        "parent_id": 62,
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 103,
+        "menu_name": "Stockist Master",
+        "url": "/stockist-master",
+        "icon": "Truck",
+        "parent_id": 62,
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 66,
+        "menu_name": "Designation Master",
+        "url": "/Designation-master",
+        "icon": "Award",
+        "parent_id": 62,
+        "sort_order": 5,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 95,
+        "menu_name": "Head Quarter Master",
+        "url": "/head-quarter-master",
+        "icon": "MapPin",
+        "parent_id": 62,
+        "sort_order": 6,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 101,
+        "menu_name": "Promotion Item Master",
+        "url": "/promotion-item-master",
+        "icon": "Gift",
+        "parent_id": 62,
+        "sort_order": 7,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 102,
+        "menu_name": "Promotion Stock",
+        "url": "/promotion-stock",
+        "icon": "Warehouse",
+        "parent_id": 62,
+        "sort_order": 8,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "menu_name": "Reports",
+    "url": "/reports-group",
+    "icon": "Reports",
+    "sort_order": 4,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "id": 106,
+        "menu_name": "Daily Call Submissions",
+        "url": "/reports/daily-call-submissions",
+        "icon": "ClipboardList",
+        "parent_id": 67,
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 107,
+        "menu_name": "Order Products",
+        "url": "/reports/order-products",
+        "icon": "Package",
+        "parent_id": 67,
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 108,
+        "menu_name": "Doctor Visits",
+        "url": "/reports/doctor-visits",
+        "icon": "Stethoscope",
+        "parent_id": 67,
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 109,
+        "menu_name": "Promotion Stock",
+        "url": "/reports/promotion-stock",
+        "icon": "Warehouse",
+        "parent_id": 67,
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "menu_name": "Menu Management",
+    "url": "/menu-management",
+    "icon": "ShieldAlert",
+    "sort_order": 5,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "id": 110,
+        "menu_name": "Role Creation",
+        "url": "/rolecreation",
+        "icon": "ShieldPlus",
+        "parent_id": 69,
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 71,
+        "menu_name": "Role Management",
+        "url": "/rolemanagement",
+        "icon": "Lock",
+        "parent_id": 69,
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 111,
+        "menu_name": "Menu Creation",
+        "url": "/menucreation",
+        "icon": "Menu",
+        "parent_id": 69,
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 73,
+        "menu_name": "Existing Menus",
+        "url": "/existingmenus",
+        "icon": "List",
+        "parent_id": 69,
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 74,
+        "menu_name": "Audit Logs",
+        "url": "/auditlogs",
+        "icon": "FileClock",
+        "parent_id": 69,
+        "sort_order": 5,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "menu_name": "User Management",
+    "url": "/user-management",
+    "icon": "Users",
+    "sort_order": 6,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "id": 41,
+        "menu_name": "User Management",
+        "url": "/usermanagement",
+        "icon": "Link",
+        "parent_id": 96,
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 76,
+        "menu_name": "Add User",
+        "url": "/adduser",
+        "icon": "Users",
+        "parent_id": 96,
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 99,
+        "menu_name": "Representative Master",
+        "url": "/representative-master",
+        "icon": "UserCircle",
+        "parent_id": 96,
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "id": 100,
+        "menu_name": "Password Change",
+        "url": "/change-password",
+        "icon": "KeyRound",
+        "parent_id": 96,
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  }
+]

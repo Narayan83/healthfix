@@ -1,0 +1,264 @@
+[
+  {
+    "menu_name": "Dashboard",
+    "url": "/home",
+    "icon": "LayoutDashboard",
+    "sort_order": 1,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false
+  },
+  {
+    "menu_name": "Transaction",
+    "url": "/transaction",
+    "icon": "ArrowLeftRight",
+    "sort_order": 2,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "menu_name": "Daily Call Report",
+        "url": "/daily-call-report",
+        "icon": "ClipboardList",
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "menu_name": "Masters",
+    "url": "/masters",
+    "icon": "Database",
+    "sort_order": 3,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "menu_name": "Product Master",
+        "url": "/Product-master",
+        "icon": "Package",
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Doctor Master",
+        "url": "/Doctor-master",
+        "icon": "Stethoscope",
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Chemist Master",
+        "url": "/chemist-master",
+        "icon": "Pill",
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Stockist Master",
+        "url": "/stockist-master",
+        "icon": "Truck",
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Designation Master",
+        "url": "/Designation-master",
+        "icon": "Award",
+        "sort_order": 5,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Head Quarter Master",
+        "url": "/head-quarter-master",
+        "icon": "MapPin",
+        "sort_order": 6,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Promotion Item Master",
+        "url": "/promotion-item-master",
+        "icon": "Gift",
+        "sort_order": 7,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Promotion Stock",
+        "url": "/promotion-stock",
+        "icon": "Warehouse",
+        "sort_order": 8,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "menu_name": "Reports",
+    "url": "/reports-group",
+    "icon": "Reports",
+    "sort_order": 4,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "menu_name": "Daily Call Submissions",
+        "url": "/reports/daily-call-submissions",
+        "icon": "ClipboardList",
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Order Products",
+        "url": "/reports/order-products",
+        "icon": "Package",
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Doctor Visits",
+        "url": "/reports/doctor-visits",
+        "icon": "Stethoscope",
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Promotion Stock",
+        "url": "/reports/promotion-stock",
+        "icon": "Warehouse",
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "menu_name": "Menu Management",
+    "url": "/menu-management",
+    "icon": "ShieldAlert",
+    "sort_order": 5,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "menu_name": "Role Creation",
+        "url": "/rolecreation",
+        "icon": "ShieldPlus",
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Role Management",
+        "url": "/rolemanagement",
+        "icon": "Lock",
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Menu Creation",
+        "url": "/menucreation",
+        "icon": "Menu",
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Existing Menus",
+        "url": "/existingmenus",
+        "icon": "List",
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Audit Logs",
+        "url": "/auditlogs",
+        "icon": "FileClock",
+        "sort_order": 5,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  },
+  {
+    "menu_name": "User Management",
+    "url": "/user-management",
+    "icon": "Users",
+    "sort_order": 6,
+    "menu_type": "main",
+    "is_active": true,
+    "requires_auth": false,
+    "children": [
+      {
+        "menu_name": "User Management",
+        "url": "/usermanagement",
+        "icon": "Link",
+        "sort_order": 1,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Add User",
+        "url": "/adduser",
+        "icon": "Users",
+        "sort_order": 2,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Representative Master",
+        "url": "/representative-master",
+        "icon": "UserCircle",
+        "sort_order": 3,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      },
+      {
+        "menu_name": "Password Change",
+        "url": "/change-password",
+        "icon": "KeyRound",
+        "sort_order": 4,
+        "menu_type": "main",
+        "is_active": true,
+        "requires_auth": false
+      }
+    ]
+  }
+]
