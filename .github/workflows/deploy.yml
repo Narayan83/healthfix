@@ -50,7 +50,7 @@ jobs:
           username: root
           port: 22
           key: ${{ secrets.VPS_SSH_KEY }}
-          fingerprint: SHA256:p4kuC+7AmUi67TJOojJcQg+LmcwCsMBhdmFLwFpL604
+          fingerprint: SHA256:nYMHfL4M37o8v9pf/DBOkZhmKI/3dOA/vX3/q9Ef86o
           source: release/healthfix_backend,release/frontend-dist.tar.gz
           target: /tmp/healthfix-release
           overwrite: true
@@ -64,7 +64,7 @@ jobs:
           username: root
           port: 22
           key: ${{ secrets.VPS_SSH_KEY }}
-          fingerprint: SHA256:p4kuC+7AmUi67TJOojJcQg+LmcwCsMBhdmFLwFpL604
+          fingerprint: SHA256:nYMHfL4M37o8v9pf/DBOkZhmKI/3dOA/vX3/q9Ef86o
           envs: GIT_SHA
           script_stop: true
           script: |
