@@ -8,6 +8,7 @@ import (
 	"health-fix-api/models"
 	"health-fix-api/seeds"
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -264,5 +265,11 @@ func main() {
 	api.Get("/audit_logs", handler.ListAuditLogs)
 	api.Get("/audit-logs/:id", handler.GetAuditLog)
 
-	log.Fatal(app.Listen(":8000"))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8001"
+	}
+	addr := "127.0.0.1:" + port
+	log.Printf("Healthfix API listening on %s", addr)
+	log.Fatal(app.Listen(addr))
 }

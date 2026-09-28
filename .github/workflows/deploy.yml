@@ -1,0 +1,97 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: healthfix-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.4"
+          cache-dependency-path: backend/go.sum
+
+      - name: Build API
+        working-directory: backend
+        env:
+          CGO_ENABLED: "0"
+          GOOS: linux
+          GOARCH: amd64
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/release"
+          go build -o "$GITHUB_WORKSPACE/release/healthfix_backend" .
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+          tar -czf "$GITHUB_WORKSPACE/release/frontend-dist.tar.gz" -C dist .
+
+      - name: Upload release
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: 88.222.242.192
+          username: root
+          port: 22
+          key: ${{ secrets.VPS_SSH_KEY }}
+          fingerprint: SHA256:p4kuC+7AmUi67TJOojJcQg+LmcwCsMBhdmFLwFpL604
+          source: release/healthfix_backend,release/frontend-dist.tar.gz
+          target: /tmp/healthfix-release
+          overwrite: true
+
+      - name: Publish on VPS
+        uses: appleboy/ssh-action@v1.2.2
+        env:
+          GIT_SHA: ${{ github.sha }}
+        with:
+          host: 88.222.242.192
+          username: root
+          port: 22
+          key: ${{ secrets.VPS_SSH_KEY }}
+          fingerprint: SHA256:p4kuC+7AmUi67TJOojJcQg+LmcwCsMBhdmFLwFpL604
+          envs: GIT_SHA
+          script_stop: true
+          script: |
+            set -euo pipefail
+            BIN="$(find /tmp/healthfix-release -name healthfix_backend -type f | head -n 1)"
+            TAR="$(find /tmp/healthfix-release -name frontend-dist.tar.gz -type f | head -n 1)"
+            test -n "$BIN"
+            test -n "$TAR"
+            install -m 755 "$BIN" /var/www/healthfix/healthfix_backend
+            cd /var/www/healthfix/source
+            git fetch origin
+            git checkout main
+            git reset --hard "$GIT_SHA"
+            mkdir -p /var/www/healthfix/source/backend/uploads
+            cp /var/www/healthfix/source/deploy/healthfix.service /etc/systemd/system/healthfix.service
+            systemctl daemon-reload
+            systemctl enable healthfix
+            rm -rf /var/www/healthfix/frontend
+            mkdir -p /var/www/healthfix/frontend
+            tar -xzf "$TAR" -C /var/www/healthfix/frontend
+            systemctl restart healthfix
+            sleep 2
+            curl -fsS http://127.0.0.1:8001/api
+            if [ ! -e /etc/nginx/sites-enabled/healthfix ]; then
+              cp /var/www/healthfix/source/deploy/nginx-healthfix.conf /etc/nginx/sites-available/healthfix
+              ln -s /etc/nginx/sites-available/healthfix /etc/nginx/sites-enabled/healthfix
+            fi
+            nginx -t
+            systemctl reload nginx
+            rm -rf /tmp/healthfix-release
